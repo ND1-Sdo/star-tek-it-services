@@ -69,4 +69,27 @@
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
+
+  const revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length && "IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    );
+
+    revealEls.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
 })();

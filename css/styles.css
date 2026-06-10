@@ -83,8 +83,9 @@
   --skip-color: var(--black);
   --skip-outline: var(--silver-light);
   --toggle-track-bg: var(--space-800);
-  --toggle-thumb-bg: var(--cyan);
-  --toggle-thumb-shadow: 0 0 8px var(--cyan-glow);
+  --toggle-thumb-off-bg: var(--silver-light);
+  --toggle-thumb-on-bg: var(--cyan);
+  --toggle-thumb-shadow: 0 0 10px var(--cyan-glow);
   --effects-enabled: 1;
 }
 
@@ -163,7 +164,8 @@
   --skip-color: #ffffff;
   --skip-outline: var(--teal-light);
   --toggle-track-bg: var(--space-700);
-  --toggle-thumb-bg: var(--teal-dark);
+  --toggle-thumb-off-bg: #ffffff;
+  --toggle-thumb-on-bg: var(--teal-dark);
   --toggle-thumb-shadow: none;
   --effects-enabled: 0;
 }
@@ -368,6 +370,8 @@ img {
   display: flex;
   align-items: center;
   gap: 1.75rem;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .nav-desktop a:not(.btn) {
@@ -394,6 +398,8 @@ img {
   align-items: center;
   gap: 0.45rem;
   flex-shrink: 0;
+  position: relative;
+  z-index: 5;
 }
 
 .theme-toggle-label {
@@ -405,47 +411,62 @@ img {
   user-select: none;
 }
 
-.theme-toggle {
+.theme-toggle-switch {
   position: relative;
-  width: 46px;
-  height: 26px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
   flex-shrink: 0;
+  cursor: pointer;
+}
+
+.theme-toggle-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
 }
 
 .theme-toggle-track {
-  display: block;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   border-radius: 999px;
   background: var(--toggle-track-bg);
   border: 1px solid var(--border-strong);
   transition: var(--theme-transition);
+  pointer-events: none;
 }
 
 .theme-toggle-thumb {
   position: absolute;
   top: 3px;
   left: 3px;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: var(--toggle-thumb-bg);
-  box-shadow: var(--toggle-thumb-shadow);
+  background: var(--toggle-thumb-off-bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.theme-toggle[aria-checked="true"] .theme-toggle-thumb {
-  transform: translateX(20px);
+.theme-toggle-input:checked ~ .theme-toggle-thumb {
+  transform: translateX(24px);
+  background: var(--toggle-thumb-on-bg);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: var(--toggle-thumb-shadow), 0 1px 4px rgba(0, 0, 0, 0.28);
 }
 
-.theme-toggle:focus-visible {
+.theme-toggle-input:focus-visible ~ .theme-toggle-track {
   outline: 2px solid var(--focus-color);
-  outline-offset: 3px;
-  border-radius: 999px;
+  outline-offset: 2px;
 }
 
 .nav-toggle {

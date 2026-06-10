@@ -92,40 +92,4 @@
       el.classList.add("is-visible");
     });
   }
-
-  const themeToggle = document.querySelector(".theme-toggle");
-  if (themeToggle) {
-    const STORAGE_KEY = "star-tek-theme";
-    const THEME_COLORS = { dark: "#111113", light: "#f1f5f9" };
-
-    function getTheme() {
-      return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
-    }
-
-    function syncThemeToggle(theme) {
-      const isDark = theme === "dark";
-      themeToggle.setAttribute("aria-checked", isDark ? "true" : "false");
-      themeToggle.setAttribute(
-        "aria-label",
-        isDark ? "Dark mode on. Switch to light mode." : "Light mode on. Switch to dark mode."
-      );
-
-      const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) {
-        meta.setAttribute("content", THEME_COLORS[theme]);
-      }
-    }
-
-    function setTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      localStorage.setItem(STORAGE_KEY, theme);
-      syncThemeToggle(theme);
-    }
-
-    syncThemeToggle(getTheme());
-
-    themeToggle.addEventListener("click", function () {
-      setTheme(getTheme() === "dark" ? "light" : "dark");
-    });
-  }
 })();

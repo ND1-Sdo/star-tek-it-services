@@ -1,8 +1,31 @@
 # Render static site — Star-Tek IT Services
-# Dashboard: New > Blueprint > connect this repo, or New > Static Site with publish path "."
+# https://render.com/docs/static-sites
 
 services:
   - type: web
     name: star-tek-it-services
     runtime: static
-    staticPublishPath: .
+    buildCommand: npm run build
+    staticPublishPath: dist
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: accelerometer=(), camera=(), geolocation=(), gyroscope=(), microphone=(), payment=()
+      - path: /css/*
+        name: Cache-Control
+        value: public, max-age=604800, immutable
+      - path: /js/*
+        name: Cache-Control
+        value: public, max-age=604800, immutable
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=2592000, immutable

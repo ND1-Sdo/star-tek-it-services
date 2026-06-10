@@ -1,0 +1,9 @@
+{
+  "name": "star-tek-it-services",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/build.mjs --validate-only"
+  }
+}

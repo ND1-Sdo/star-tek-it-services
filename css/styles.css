@@ -46,6 +46,37 @@ html {
   scroll-behavior: smooth;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: var(--navy);
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--teal-light);
+  outline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
 body {
   margin: 0;
   font-family: "Manrope", system-ui, -apple-system, sans-serif;
@@ -1000,6 +1031,10 @@ section {
   line-height: 1.7;
 }
 
+.error-page .hero-actions {
+  margin-top: 1.75rem;
+}
+
 .section-header-left {
   text-align: left;
   margin-left: 0;
@@ -1437,6 +1472,18 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
   body::before,
   .hero::before {
     animation: none;

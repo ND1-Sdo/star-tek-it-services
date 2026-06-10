@@ -16,7 +16,31 @@
         toggle.setAttribute("aria-label", "Open menu");
       });
     });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && mobileNav.classList.contains("is-open")) {
+        mobileNav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+        toggle.focus();
+      }
+    });
   }
+
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-desktop a[href], .nav-mobile a[href]").forEach(function (link) {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("mailto:")) return;
+
+    const linkPage = href.split("#")[0].split("/").pop();
+    const isHome = (currentPage === "" || currentPage === "index.html") && (linkPage === "index.html" || linkPage === "");
+    const isMatch = linkPage === currentPage || isHome;
+
+    if (isMatch) {
+      link.classList.add("nav-active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
 
   const form = document.querySelector("#contact-form");
   if (form) {
@@ -36,7 +60,8 @@
         message
       );
 
-      window.location.href = "mailto:ltdstartek@gmail.com?subject=" + subject + "&body=" + body;
+      const emailTo = (window.STAR_TEK_SITE && window.STAR_TEK_SITE.email) || "ltdstartek@gmail.com";
+      window.location.href = "mailto:" + emailTo + "?subject=" + subject + "&body=" + body;
     });
   }
 

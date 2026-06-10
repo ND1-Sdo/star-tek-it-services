@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Star-Tek IT Services — get a quote for websites, apps, Stripe integrations, or IT management.">
+  <meta name="theme-color" content="#0F2B5C">
+  <title>Contact — Star-Tek IT Services</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Star-Tek IT Services">
+  <meta property="og:title" content="Contact — Star-Tek IT Services">
+  <meta property="og:description" content="Get a quote for websites, apps, Stripe integrations, or IT management.">
+  <meta property="og:image" content="https://star-tek-it-services.onrender.com/images/og-star-tek.png">
+  <meta property="og:url" content="https://star-tek-it-services.onrender.com/contact.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://star-tek-it-services.onrender.com/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230F2B5C' width='100' height='100' rx='20'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%232A9D94' font-family='system-ui' font-weight='800'>S</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Star-Tek IT Services home">
+        <span class="logo-mark" aria-hidden="true">S</span>
+        Star-<span>Tek</span> IT
+      </a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="services.html">Services</a>
+        <a href="how-we-work.html">How we work</a>
+        <a href="our-work.html">Our work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="btn btn-primary btn-nav">Get a quote</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile navigation">
+      <a href="services.html">Services</a>
+      <a href="how-we-work.html">How we work</a>
+      <a href="our-work.html">Our work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Get a quote</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact contact-page">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Contact</span>
+          <h2>Let's talk about your project</h2>
+          <p>Tell us what you need — website, custom CV, app, Stripe integration, IT inventory, fleet support, or all of the above. We'll get back to you within one business day.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Get in touch</h3>
+            <p>
+              Prefer email or a quick call? Reach out directly — no obligation, no hard sell. Just a friendly conversation about what would help your business most.
+            </p>
+            <div class="contact-detail">
+              <svg class="icon icon-sm" aria-hidden="true"><use href="icons.svg#mail"></use></svg>
+              <a href="mailto:ltdstartek@gmail.com">ltdstartek@gmail.com</a>
+            </div>
+            <div class="contact-detail">
+              <svg class="icon icon-sm" aria-hidden="true"><use href="icons.svg#linkedin"></use></svg>
+              <a href="https://www.linkedin.com/in/niall-darby-8b8266a9" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+            <div class="contact-detail">
+              <svg class="icon icon-sm" aria-hidden="true"><use href="icons.svg#link"></use></svg>
+              <a href="https://ltdstartek.org" target="_blank" rel="noopener noreferrer">ltdstartek.org</a>
+            </div>
+          </div>
+          <form id="contact-form" class="contact-form" action="mailto:ltdstartek@gmail.com" method="post">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" required placeholder="Jane Smith">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="you@company.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="service">Service interested in</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service…</option>
+                <option value="Website building">Website building</option>
+                <option value="Custom website CV">Custom website CV</option>
+                <option value="Application building">Application building</option>
+                <option value="IT management">IT management</option>
+                <option value="Stripe integrations">Stripe integrations</option>
+                <option value="IT inventory management">IT inventory management</option>
+                <option value="IT fleet setup and maintenance">IT fleet setup &amp; maintenance</option>
+                <option value="Multiple services">Multiple services</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell us about your project</label>
+              <textarea id="message" name="message" required placeholder="What are you looking to achieve? Any timeline or budget in mind?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send enquiry</button>
+            <p class="form-note">Opens your email app with a pre-filled message. No data is stored on this site.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark" aria-hidden="true">S</span>
+            Star-<span>Tek</span> IT Services
+          </a>
+          <p class="footer-tagline">Websites, apps &amp; IT — built and managed for your business.</p>
+          <div class="footer-contact-links">
+            <a href="mailto:ltdstartek@gmail.com" class="footer-contact-item">
+              <svg class="icon icon-sm" aria-hidden="true"><use href="icons.svg#mail"></use></svg>
+              ltdstartek@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/niall-darby-8b8266a9" class="footer-contact-item" target="_blank" rel="noopener noreferrer">
+              <svg class="icon icon-sm" aria-hidden="true"><use href="icons.svg#linkedin"></use></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="services.html">Services</a>
+          <a href="how-we-work.html">How we work</a>
+          <a href="our-work.html">Our work</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+      <p class="footer-copy">© <span data-year></span> Star-Tek IT Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/site-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

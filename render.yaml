@@ -1,0 +1,8 @@
+# Render static site — Star-Tek IT Services
+# Dashboard: New > Blueprint > connect this repo, or New > Static Site with publish path "."
+
+services:
+  - type: web
+    name: star-tek-it-services
+    runtime: static
+    staticPublishPath: .

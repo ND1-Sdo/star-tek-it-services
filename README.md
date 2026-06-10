@@ -50,7 +50,7 @@ After deploy, add custom domain `services.ltdstartek.org` in Render → Settings
 index.html          Home
 services.html       Service listings
 how-we-work.html    Process
-our-work.html       Portfolio (Astra Desk)
+our-work.html       Portfolio (case studies)
 about.html          About
 contact.html        Contact form (mailto)
 privacy.html        Privacy policy
